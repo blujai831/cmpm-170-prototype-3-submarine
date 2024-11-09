@@ -20,7 +20,6 @@ public class NewBehaviourScript : MonoBehaviour
 
     void Start()
     {
-        // Add event triggers for PointerDown and PointerUp
         AddEventTrigger(left_button, EventTriggerType.PointerDown, OnLeftButtonDown);
         AddEventTrigger(left_button, EventTriggerType.PointerUp, OnLeftButtonUp);
         AddEventTrigger(right_button, EventTriggerType.PointerDown, OnRightButtonDown);
@@ -29,7 +28,6 @@ public class NewBehaviourScript : MonoBehaviour
 
     void Update()
     {
-        // Check if left or right button is held down and call respective methods
         if (isLeftHeld)
         {
             Left_clicked();
@@ -50,7 +48,7 @@ public class NewBehaviourScript : MonoBehaviour
 
     void Right_clicked()
     {
-        radar.transform.Rotate(0, 0, -rotate_speed * Time.deltaTime); // Assuming right rotates the other way
+        radar.transform.Rotate(0, 0, -rotate_speed * Time.deltaTime);
     }
 
     void OnLeftButtonDown(BaseEventData eventData)
@@ -89,7 +87,6 @@ public class NewBehaviourScript : MonoBehaviour
     void DirectionUpdate()
     {
         float degrees = radar.transform.eulerAngles.z;
-        //if (degrees < 0) degrees += 360;
-        radar_direction_text.SetText(degrees.ToString("F0") + "°");
+        radar_direction_text.SetText(degrees.ToString("F0") + "°"); //no decimals
     }
 }
